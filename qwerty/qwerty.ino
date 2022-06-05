@@ -7,7 +7,7 @@
 #define DHTPIN 2          // Sensor Pin
 #define DHTTYPE DHT11     // DHT 11
 #define delayTime 300     // Time in seconds beetwen sendings
-#define IP "192.168.1.6"  // Server IP
+#define IP "123..."  // Server IP
 #define PORT 5000         // Server Port
 
 DHT dht(DHTPIN, DHTTYPE);

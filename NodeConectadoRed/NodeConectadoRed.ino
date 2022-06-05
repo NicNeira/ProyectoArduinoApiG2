@@ -1,16 +1,3 @@
-/*Programa DHT11_Nodemcu_WLAN Version 1
- * FUNCIONO SATISFACTORIAMENTE-
- * LA PAGINA NO REFESCA SOLA - USE F5
- *
- * Envia por red a una pagina de INTRANET los datos del DHT11
- * Sketchup sobre DHT11 tomada de Robo India Tutorial portal
- * Adaptada Prof: Bolaños 19-5-19
- * Este programa muestra temperatura y humedad mediante DHT11
- * Funciona con la libreria DHT.h contenida en esta carpeta del
- * programa.
- * El PIN del Nodemcu es el D3
- *
- */
 #include "DHT.h" // including the library of DHT11 temperature and humidity sensor
 #define DHTTYPE DHT11 // DHT 11
 #define dht_dpin 0
@@ -19,8 +6,8 @@ DHT dht(dht_dpin, DHTTYPE);
  * SERIE DEBE ESTAR EN LA MISMA VELOCIDAD*/
 #include <ESP8266WiFi.h>
 
-const char* ssid = "Pebre";
-const char* password = "Olivia957";
+const char* ssid = ""; //you Network
+const char* password = ""; 
 
 int LED = 16; // led connected to D0
 WiFiServer server(80);
@@ -99,11 +86,6 @@ void loop()
  client.print(" % ");
  client.println("</html>");
 //--Fin de la pagina html---------------------
-/*Esta pagina la podra ver en el navegador
- * mediante la direccion IP que se le asigno a
- * la placa Nodemcu su router
- * refresque la pagina con F5
- */
 
  delay(800);
 } 
