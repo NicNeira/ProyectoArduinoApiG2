@@ -39,8 +39,8 @@ void loop() {
     HTTPClient http;
 
     // URL API
-    //String link = "http://nodemcuesp8266test.herokuapp.com/contacto";
-    String link = "http://192.168.100.3:3000/";
+    String link = "http://nodemcuesp8266test.herokuapp.com/";
+    //String link = "http://192.168.100.3:3000/";
 
     Serial.println(link);
     http.begin(client, link);
@@ -57,15 +57,15 @@ void loop() {
     Serial.println(h);
 
     /*JsonObject& values = jsonBuffer.createObject();
-    //values["humidity"] = h;
+    values["humidity"] = h;
     values["temperatura"] = t;
     */
    
     //POST request
     http.addHeader("Content-Type", "application/json");
     //String Data = "{\"temperatura\" : t }";
-    int httpResponseCode = http.POST("{\"temperatura\" : "+ String(t)+",\"humedad\" : "+ String(h)+"}");
-    //int httpResponseCode = http.POST("{\"api_key\":\"tPmAT5Ab3j7F9\",\"sensor\":\"BME280\",\"value1\":\"24.25\",\"value2\":\"49.54\",\"value3\":\"1005.14\"}")
+    int httpResponseCode = http.POST("{\"temperatura\":\"" + String(t) + "\",\"humedad\":\"" + String(h) + "\"}");
+    //"{\"temperatura\" : "+ String(t)+"\",\"humedad\" : "+ String(h)+"}"
     Serial.println("POST");
 
     //GET request
